@@ -3,6 +3,9 @@ from ollama import Client
 from dotenv import load_dotenv
 from pathlib import Path
 
+from src.telemtria import coletar
+fom src.alertas import avaliar
+
 load_dotenv()
 
 TRILHA = "connectsat"
@@ -42,24 +45,38 @@ class MissionEngine:
         return False #trocar para True quando analyze() estiver implementado
 
     def status_snapshot(self):
-        return " status_snapshot() ainda não implementado"
+        dados = coletar()
+        return f """
+        Status da Missão
+
+        Latência: {dados['latencia_ms']} ms
+        Throughput: {dados['throughput_mbps']} Mbps
+        Saúde da Antena: {dados['saude_antena']}%
+        Beam Steering: {dados['beam_stearing']}
+        Temperatura do Transponder: {dados['temperatura_transponder']}°C
+        Clientes Online: {dados['clientes_online']}
+        Integridade do Sinal: {dados['integridade_sinal']}%
+        Região: {dados['Regiao']}
+        """
 
     def analyze(self, pergunta_usuario):
-        #todo: implementar análise da pergunta do usuário e retornar resposta
-        # 1. Coletar dados via src.telemetria.coletar()
-        # 2. avaliar alertas via src.alertas.avaliar()
-        # 3. montar prompt com dados + alertas + pergunta do usuário
-        # 4. chamar llm(prompt, system=self.system_prompt)
-        # 5. Retornar resposta
-        return (
-            "   Implementação pendente. \n \n"
-            "Olá! A interface CLI está funcionando, mas a lógica\\n"
-            "de análise ainda não foi conectada. O grupo precisa:"
-            "1. Implementar a coleta de dados em src.telemetria.coletar()\\n"
-            "2. Completar src/alertas.py"
-            "3. Escrever o system prompt em prompts/system_prompt.md"
-            "4. Sobrescrever analyse() em src/engine.py"
+        dados = coletar()
+        alertas = avaliar(dados)
+        prompt = f"""
+        Dados atuais da missão:
+        {dados}
+
+        Alertas detectados:
+        {alertas}
+        Pergunta ao operador:
+        {pergunta_usuario}
+        """
+        llm(
+            prompt,
+            system=self.system_prompt,
         )
+
+        return = resposta
     
      
            
