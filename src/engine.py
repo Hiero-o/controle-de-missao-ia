@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 from src.telemtria import coletar
-fom src.alertas import avaliar
+from src.alertas import avaliar
 
 load_dotenv()
 
@@ -13,8 +13,8 @@ TRILHA = "connectsat"
 client = Client(
     host="https://ollama.com"
     headers={'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY', '')}
+    )
 
-)
 
 def llm(prompt, system=None, max_tokens=800, temperature=0.3):
     messages = []
@@ -27,8 +27,8 @@ def llm(prompt, system=None, max_tokens=800, temperature=0.3):
             options={"num_predict": max_tokens, "temperature": temperature},
             stream=False
            )['message']['content'].strip()
-        except Exception as e:
-            return f" Erro ao consultar IA: {e}" 
+    except Exception as e:
+        return f" Erro ao consultar IA: {e}" 
 
 def load_system_prompt():
     path = Path("prompts/system_prompt.md")
@@ -46,9 +46,8 @@ class MissionEngine:
 
     def status_snapshot(self):
         dados = coletar()
-        return f """
+        return f"""
         Status da Missão
-
         Latência: {dados['latencia_ms']} ms
         Throughput: {dados['throughput_mbps']} Mbps
         Saúde da Antena: {dados['saude_antena']}%
@@ -76,7 +75,7 @@ class MissionEngine:
             system=self.system_prompt,
         )
 
-        return = resposta
+        return resposta
     
      
            
