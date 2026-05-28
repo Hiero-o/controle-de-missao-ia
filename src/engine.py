@@ -18,7 +18,7 @@ client = Client(
 )
 
 
-def llm(prompt, system=None, max_tokens=800, temperature=0.3):
+def llm(prompt, system=None, max_tokens=1200, temperature=0.3):
     messages = []
     if system:
         messages.append({"role": "system", "content": system})

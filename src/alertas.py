@@ -1,7 +1,3 @@
-from telemetria import dados
-
-
-
 def avaliar(dados):
     # Regras de alerta
     alertas = []
@@ -22,19 +18,19 @@ def avaliar(dados):
             "acao": "Recomenda-se monitorar de perto e ajustar a operação."
         })
 
-    elif dados["temperatura_antena"] < 50:
+    elif dados["temperatura_transponder"] < 50:
         alertas.append({
             "tipo": "Temperatura normal",
             "severidade": "Alerta",
-            "mensagem": "Antena operando em temperatura normal.",
+            "mensagem": "Transponder operando em temperatura normal.",
             "acao": "Nenhuma ação necessária."
         })
-    else: dados["temperatura_antena"] == None
+    else: dados["temperatura_transponder"] == None
     alertas.append({
             "tipo": "Temperatura Desconecatada",
             "severidade": "Alerta",
-            "mensagem": "Temperatura da antena não disponível, possível falha de sensor, comunicação ou manutenção.",
-            "acao": "Recomenda-se verificar o sensor de temperatura da antena."
+            "mensagem": "Temperatura do transponder não disponível, possível falha de sensor, comunicação ou manutenção.",
+            "acao": "Recomenda-se verificar o sensor de temperatura do transponder."
         })
 
 
@@ -166,21 +162,21 @@ def avaliar(dados):
 
 
     # Clientes onlines
-    if dados["clientes_online"] > 100000:
+    if dados["clientes_online"] > 10000:
         alertas.append({
             "tipo": "Número de Clientes Online Alto",
             "severidade": "Alerta",
             "mensagem": "Número de clientes online está alto, monitorar de perto.",
             "acao": "Recomenda-se monitorar o número de clientes online e ajustar a operação conforme necessário."
         })
-    elif dados["clientes_online"] >= 50000 and dados["clientes_online"] <= 100000:
+    elif dados["clientes_online"] >= 5000 and dados["clientes_online"] <= 10000:
         alertas.append({
             "tipo": "Número de Clientes Online Moderado",
             "severidade": "Alerta",
             "mensagem": "Número de clientes online está moderado, monitorar de perto.",
             "acao": "Recomenda-se monitorar o número de clientes online e ajustar a operação conforme necessário."
         })
-    elif dados["clientes_online"] < 50000:
+    elif dados["clientes_online"] < 5000:
         alertas.append({
             "tipo": "Número de Clientes Online Baixo",
             "severidade": "Alerta",

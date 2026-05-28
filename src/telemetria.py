@@ -11,7 +11,7 @@ def coletar():
     "OFFLINE"
     ]
 
-    estado = random.choice(
+    estado = random.choices(
         estados,
         weights = [50, 30, 10, 5, 5]
     )[0]
@@ -33,7 +33,7 @@ def coletar():
             "saude_antena": random.randint(80, 100),
             "beam_stearing": "ESTAVEL",
             "temperatura_transponder": random.randint(30, 50),
-            "clientes_online": random.randint(10000, 50000),
+            "clientes_online": random.randint(1000, 5000),
             "integridade_sinal": random.randint(70, 100),
             "Regiao": regiao
         }
@@ -47,7 +47,7 @@ def coletar():
             "saude_antena": random.randint(50, 80),
             "beam_stearing": random.choice(["AJUSTANDO"]),
             "temperatura_transponder": random.randint(50, 70),
-            "clientes_online": random.randint(50000, 100000),
+            "clientes_online": random.randint(5000, 10000),
             "integridade_sinal": random.randint(55, 70),
             "Regiao": regiao
         }
@@ -61,7 +61,7 @@ def coletar():
             "saude_antena": random.randint(5, 50),
             "beam_stearing": random.choice(["INSTAVEL"]),
             "temperatura_transponder": random.randint(70, 95),
-            "clientes_online": random.randint(100000, 200000),
+            "clientes_online": random.randint(10000, 20000),
             "integridade_sinal": random.randint(30, 55),
             "Regiao": regiao
         }
