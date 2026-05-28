@@ -1,9 +1,10 @@
 import os
+
 from ollama import Client
 from dotenv import load_dotenv
 from pathlib import Path
 
-from src.telemtria import coletar
+from src.telemetria import coletar
 from src.alertas import avaliar
 
 load_dotenv()
@@ -11,15 +12,16 @@ load_dotenv()
 TRILHA = "connectsat"
 
 client = Client(
-    host="https://ollama.com"
-    headers={'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY', '')}
-    )
+    host="https://ollama.com",
+    headers={'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY', '') 
+    }
+)
 
 
 def llm(prompt, system=None, max_tokens=800, temperature=0.3):
     messages = []
     if system:
-        messages.append({"role": "user", "content": prompt})
+        messages.append({"role": "system", "content": system})
     messages.append({"role": "user", "content": prompt})
     try:
         return client.chat(
@@ -27,7 +29,9 @@ def llm(prompt, system=None, max_tokens=800, temperature=0.3):
             options={"num_predict": max_tokens, "temperature": temperature},
             stream=False
            )['message']['content'].strip()
+    
     except Exception as e:
+
         return f" Erro ao consultar IA: {e}" 
 
 def load_system_prompt():
@@ -42,7 +46,7 @@ class MissionEngine:
         self.system_prompt = load_system_prompt()
     
     def is_ready(self):
-        return False #trocar para True quando analyze() estiver implementado
+        return True #trocar para True quando analyze() estiver implementado
 
     def status_snapshot(self):
         dados = coletar()
@@ -70,7 +74,7 @@ class MissionEngine:
         Pergunta ao operador:
         {pergunta_usuario}
         """
-        llm(
+        resposta = llm(
             prompt,
             system=self.system_prompt,
         )
