@@ -36,7 +36,7 @@ O foco principal do projeto é demonstrar como sistemas espaciais podem impactar
 
 # Trilha Escolhida
 
-📡 ConnectSat — Conectividade Rural
+# ConnectSat — Conectividade Rural
 
 O projeto simula uma constelação de satélites LEO inspirada em sistemas modernos de telecomunicação orbital como Starlink e OneWeb.
 
@@ -84,15 +84,15 @@ A IA é responsável por:
 
 # Funcionalidades
 
-✅ Simulação de telemetria orbital
-✅ Estados operacionais dinâmicos
-✅ Alertas automáticos
-✅ Classificação de severidade
-✅ IA generativa integrada
-✅ Impacto terrestre contextualizado
-✅ Interface CLI estilo Mission Control
-✅ Análise operacional em tempo real
-✅ Sistema de resposta automatizada
+- Simulação de telemetria orbital
+- Estados operacionais dinâmicos
+- Alertas automáticos
+- Classificação de severidade
+- IA generativa integrada
+- Impacto terrestre contextualizado
+- Interface CLI estilo Mission Control
+- Análise operacional em tempo real
+- Sistema de resposta automatizada
 
 ---
 
@@ -127,15 +127,15 @@ Exemplos:
 
 ## 1. Clonar o repositório
 
-bash
-git clone https://github.com/SEU-USUARIO/mission-control-ai
+Terminal (CMD - POWERSHELL - GITBASH)
+git clone https://github.com//mission-control-ai
 
 
 ---
 
 ## 2. Entrar na pasta do projeto
 
-bash
+Terminal
 cd mission-control-ai
 
 
@@ -143,7 +143,7 @@ cd mission-control-ai
 
 ## 3. Criar ambiente virtual
 
-bash
+Terminal
 python -m venv venv
 
 
@@ -153,7 +153,7 @@ python -m venv venv
 
 ### Windows
 
-bash
+Terminal
 venv\Scripts\activate
 
 
@@ -161,13 +161,13 @@ venv\Scripts\activate
 
 ## 5. Instalar dependências
 
-bash
+Terminal
 pip install -r requirements.txt
 
 
 ---
 
-## 6. Criar arquivo `.env`
+## 6. Criar arquivo .env
 
 env
 OLLAMA_API_KEY=sua_chave_aqui
@@ -177,7 +177,7 @@ OLLAMA_API_KEY=sua_chave_aqui
 
 ## 7. Executar o sistema
 
-bash
+Terminal
 py main.py
 
 
@@ -187,30 +187,30 @@ py main.py
 
 ## Banner inicial
 
-![Banner](assets/screenshot-banner.png)
+(assets/screenshot-banner.png)
 
 ---
 
 ## Estado operacional normal
 
-![Normal](assets/screenshot-alerta-normal.png)
+(assets/screenshot-alerta-normal.png)
 
 ---
 
 ## Estado operacional moderado
 
-![Moderado](assets/screenshot-alerta-moderado.png)
+(assets/screenshot-alerta-moderado.png)
 
 ---
 
 ## Estado operacional manutenção
 
-![Crítico](assets/screenshot-alerta-critico-manutenção.png)
+(assets/screenshot-alerta-critico-manutenção.png)
 
 ---
 
 ## Estado operacional Critico
-![Crítico](assets/screenshot-alerta-critico.png)
+(assets/screenshot-alerta-critico.png)
 
 
 ---
@@ -232,14 +232,14 @@ Além disso, o sistema gera respostas automatizadas para mitigação de problema
 
 # Cenários Testados
 
-✅ Operação normal
-✅ Congestionamento da rede
-✅ Throughput crítico
-✅ Temperatura elevada
-✅ Degradação da antena
-✅ Instabilidade do beam steering
-✅ Manutenção orbital
-✅ Falha parcial de sensores
+- Operação normal
+- Congestionamento da rede
+- Throughput crítico
+- Temperatura elevada
+- Degradação da antena
+- Instabilidade do beam steering
+- Manutenção orbital
+- Falha parcial de sensores
 
 ---
 
@@ -274,7 +274,7 @@ Link do vídeo no YouTube:
 
 Projeto desenvolvido para a disciplina de:
 
-**Prompt Engineering and Artificial Intelligence — FIAP**
+**Prompt Engineering and Artificial Intelligence — FIAP 2026.1**
 
 Tema:
 **Indústria Espacial e Impacto Terrestre**
