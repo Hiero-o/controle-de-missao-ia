@@ -260,6 +260,18 @@ Além disso, o sistema gera respostas automatizadas para mitigação de problema
 * Não há conexão com hardware real
 * O sistema depende de conexão com internet para uso da IA
 * Algumas respostas da IA podem variar devido ao comportamento generativo do modelo
+* A IA está sujeita ao limite de tokens, gerando assim, respostas incompletas quando muito longas, podendo impedir o relatório completo em certos casos.
+
+---
+
+# Versões
+
+* As primerias versões do modelo, nos testes, estavam gerando respostas irreais do sistema.
+- Os dados estavam vindo incoerentes, indicando problemas de leitura.
+- dados com altos parâmetros não estavam sendo lidos corretamente pela IA e gerando respostas sem muuito sentido.
+
+* Ficamos bastante tempo ajustando os parâmetros e usando o chatGPT para nos auxiliar com erros que não entendíamos.
+- Limitar os valores na telemetria, ajudou o sistema a ficar mais coerente, onde temperaturas muito altas ou outros dados extremos estavam sendo lidos pela IA como erro nos sensores e avisando ao usuário sobre o problema.
 
 ---
 

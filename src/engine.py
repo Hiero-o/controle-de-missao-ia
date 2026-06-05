@@ -53,6 +53,7 @@ class MissionEngine:
     def status_snapshot(self):
         dados = coletar()
         return f"""
+        Estado: {dados['estado']}
         Status da Missão
         Latência: {dados['latencia_ms']} ms
         Throughput: {dados['throughput_mbps']} Mbps

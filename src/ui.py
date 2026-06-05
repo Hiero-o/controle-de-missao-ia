@@ -42,7 +42,7 @@ def run_cli(engine):
             console.print("Comandos: /help /status /about /clear /exit")
             continue
         if user_input == "/status":
-            show_response("engine.status_snapshot()")
+            show_response(engine.status_snapshot())
             continue
         if user_input == "/clear":
             console.clear(); show_banner(); continue
