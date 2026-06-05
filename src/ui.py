@@ -39,7 +39,7 @@ def run_cli(engine):
         if user_input == "/exit":
             break
         if user_input == "/help":
-            console.print("Comandos: /help /status /about /clear /exit /cenario normal /cenario critico /cenario moderado / cenario impossivel")
+            console.print("Comandos: /help /status /about /clear /exit /cenario-normal /cenario-critico /cenario-moderado /cenario-impossivel")
             continue
         if user_input == "/status":
             show_response(engine.status_snapshot())
@@ -47,17 +47,51 @@ def run_cli(engine):
         if user_input == "/clear":
             console.clear(); show_banner(); continue
         resposta = engine.analyze(user_input)
-        if user_input == "/cenario normal":
-            engine.carregar_cenario("estado normal")
+
+        if user_input == "/cenario-normal":
+
+            engine.carregar_cenario("estado_normal")
+
+            resposta = engine.analyze(
+                "Analise o estado atual da missão."
+            )
+            show_response(resposta)
             continue
-        if user_input == "/cenario criticio":
-            engine.carregar_cenario("estado critico")
+
+        if user_input == "/cenario-critico":
+
+            engine.carregar_cenario("estado_critico")
+
+            resposta = engine.analyze(
+                "Analise o estado atual da missão."
+            )
+
+            show_response(resposta)
+
             continue
-        if user_input == "/cenario moderado":
-            engine.carregar_cenario("estado moderado")
+
+        if user_input == "/cenario-moderado":
+
+            engine.carregar_cenario("estado_moderado")
+
+            resposta = engine.analyze(
+                "Analise o estado atual da missão."
+            )
+
+            show_response(resposta)
+
             continue
-        if user_input == "/cenario impossivel":
-            engine.carregar_cenario("estado impossivel")
+
+        if user_input == "/cenario-impossivel":
+
+            engine.carregar_cenario("estado_impossivel")
+
+            resposta = engine.analyze(
+                "Analise o estado atual da missão."
+            )
+
+            show_response(resposta)
+
             continue
                
         

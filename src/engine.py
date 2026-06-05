@@ -41,19 +41,20 @@ def load_system_prompt():
         return path.read_text(encoding="utf-8")
     return "Você é um assistente."
 
-def carregar_cenario(self, nome):
-
-    with open ("cenarios.json", "r", encoding='utf-8') as f:
-        cenarios = json.load(f)
-        self.dados_atuais = cenarios[nome]
-
 class MissionEngine:
     def __init__(self):
         self.trilha = TRILHA
         self.system_prompt = load_system_prompt()
         self.dados_atuais = coletar ()
-
         self.historico = []
+
+    def carregar_cenario(self, nome):
+        with open ("data/cenarios.json", "r", encoding='utf-8') as f:
+            cenarios = json.load(f)
+            self.dados_atuais = cenarios[nome]
+            # print("cenario carregado:")
+            # print(self.dados_atuais)
+
     
     def is_ready(self):
         return True #trocar para True quando analyze() estiver implementado
@@ -81,7 +82,7 @@ class MissionEngine:
 
         self.historico.append(
             {
-                "role": "system",
+                "role": "user",
                 "content": pergunta_usuario
             }
         )
@@ -105,13 +106,6 @@ class MissionEngine:
         Pergunta do operador:
         {pergunta_usuario}
         """
-
-        self.historico.append(
-            {
-                "role": "user",
-                "content": pergunta_usuario
-            }
-        )
 
         resposta = llm(
             prompt,

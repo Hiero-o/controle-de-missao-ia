@@ -2,35 +2,35 @@
     "estado_normal": {
         "estado": "NORMAL",
         "latencia_ms": 45,
-        "throughput_mbps": 850,
+        "throughput_mbps": 450,
         "saude_antena": 95,
-        "beam_steering": "ESTÁVEL",
+        "beam_stearing": "ESTAVEL",
         "temperatura_transponder": 38,
-        "clientes_online": 12500,
+        "clientes_online": 3300,
         "integridade_sinal": 98,
-        "regiao": "Sertão Nordestino"
+        "regiao": "Sertão nordestino"
     },
 
     "estado_moderado": {
         "estado": "MODERADO",
-        "latencia_ms": 120,
-        "throughput_mbps": 420,
+        "latencia_ms": 200,
+        "throughput_mbps": 200,
         "saude_antena": 72,
-        "beam_steering": "AJUSTANDO",
+        "beam_stearing": "AJUSTANDO",
         "temperatura_transponder": 58,
-        "clientes_online": 19800,
-        "integridade_sinal": 81,
+        "clientes_online": 5600,
+        "integridade_sinal": 55,
         "regiao": "Comunidade Ribeirinha"
     },
 
     "estado_critico": {
         "estado": "CRÍTICO",
-        "latencia_ms": 320,
-        "throughput_mbps": 80,
+        "latencia_ms": 600,
+        "throughput_mbps": 23,
         "saude_antena": 22,
-        "beam_steering": "INSTÁVEL",
+        "beam_stearing": "INSTAVEL",
         "temperatura_transponder": 89,
-        "clientes_online": 5400,
+        "clientes_online": 18000,
         "integridade_sinal": 35,
         "regiao": "Interior do Amazonas"
     },
@@ -40,7 +40,7 @@
         "latencia_ms": 999,
         "throughput_mbps": 0,
         "saude_antena": 5,
-        "beam_steering": "FALHA TOTAL",
+        "beam_stearing": "FALHA TOTAL",
         "temperatura_transponder": 500,
         "clientes_online": 0,
         "integridade_sinal": 0,
