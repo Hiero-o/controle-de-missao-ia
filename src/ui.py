@@ -14,7 +14,8 @@ def show_banner():
     console.print(Text(banner, style="bold cyan"))
     console.print(Panel.fit(
         "Sistema de monitoramento e análise por IA generativa\n"
-        "Use /help para ver os comandos . /exit para sair."
+        "Use /help para ver os comandos disponíveis . /exit para sair."
+        "Faça a pergunta direto para a IA"
         "Modelo: gpt-oss:120b via Ollama cloud",
         title="Mission Control", border_style="bold cyan"
     ))
@@ -46,4 +47,7 @@ def run_cli(engine):
         if user_input == "/clear":
             console.clear(); show_banner(); continue
         resposta = engine.analyze(user_input)
+               
+        
+
         show_response(resposta)
