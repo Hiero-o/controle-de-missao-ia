@@ -44,6 +44,8 @@ class MissionEngine:
     def __init__(self):
         self.trilha = TRILHA
         self.system_prompt = load_system_prompt()
+
+        self.historico = []
     
     def is_ready(self):
         return True #trocar para True quando analyze() estiver implementado
@@ -59,25 +61,61 @@ class MissionEngine:
         Temperatura do Transponder: {dados['temperatura_transponder']}°C
         Clientes Online: {dados['clientes_online']}
         Integridade do Sinal: {dados['integridade_sinal']}%
-        Região: {dados['Regiao']}
+        Região: {dados['regiao']}
         """
 
     def analyze(self, pergunta_usuario):
         dados = coletar()
         alertas = avaliar(dados)
+
+        historico_texto = ""
+
+        self.historico.append(
+            {
+                "role": "system",
+                "content": pergunta_usuario
+            }
+        )
+
+        for msg in self.historico[-6:]:
+            historico_texto += (
+               f"{msg['role'].upper()}: {msg['content']}\n"
+            )
+
         prompt = f"""
+        Histórico recente:
+
+        {historico_texto}
+
         Dados atuais da missão:
         {dados}
 
         Alertas detectados:
         {alertas}
-        Pergunta ao operador:
+
+        Pergunta do operador:
         {pergunta_usuario}
         """
+
+        self.historico.append(
+            {
+                "role": "user",
+                "content": pergunta_usuario
+            }
+        )
+
         resposta = llm(
             prompt,
             system=self.system_prompt,
         )
+
+        self.historico.append(
+            {
+                "role": "assistant",
+                "content": resposta
+            }
+        )
+
 
         return resposta
     

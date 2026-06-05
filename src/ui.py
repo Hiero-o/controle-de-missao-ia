@@ -13,9 +13,9 @@ def show_banner():
     banner = pyfiglet.figlet_format("Mission Control", font="ansi_shadow")
     console.print(Text(banner, style="bold cyan"))
     console.print(Panel.fit(
-        "Systema de monitoramento e análise por IA generativa\n"
+        "Sistema de monitoramento e análise por IA generativa\n"
         "Use /help para ver os comandos . /exit para sair."
-        "Modelo: gpt-oss:120b vi Ollama cloud",
+        "Modelo: gpt-oss:120b via Ollama cloud",
         title="Mission Control", border_style="bold cyan"
     ))
 
@@ -35,15 +35,15 @@ def run_cli(engine):
             break
         if not user_input:
             continue
-        if user_input == ("/exit"):
+        if user_input == "/exit":
             break
-        if user_input == ("/help"):
+        if user_input == "/help":
             console.print("Comandos: /help /status /about /clear /exit")
             continue
-        if user_input == ("/status"):
+        if user_input == "/status":
             show_response("engine.status_snapshot()")
             continue
-        if user_input == ("/clear"):
+        if user_input == "/clear":
             console.clear(); show_banner(); continue
         resposta = engine.analyze(user_input)
         show_response(resposta)

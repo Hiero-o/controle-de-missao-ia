@@ -25,7 +25,7 @@ def avaliar(dados):
             "mensagem": "Transponder operando em temperatura normal.",
             "acao": "Nenhuma ação necessária."
         })
-    else: dados["temperatura_transponder"] == None
+    else: dados["temperatura_transponder"] is None
     alertas.append({
             "tipo": "Temperatura Desconecatada",
             "severidade": "Alerta",
@@ -58,7 +58,7 @@ def avaliar(dados):
             "mensagem": "Latência de rede está dentro dos parâmetros normais.",
             "acao": "Nenhuma ação necessária."
         })
-    else: dados["latencia_ms"] == None
+    else: dados["latencia_ms"] is None
     alertas.append({
             "tipo": "Latência Desconecatada",
             "severidade": "Alerta",
@@ -89,7 +89,7 @@ def avaliar(dados):
             "mensagem": "Throughput está baixo, indicando possível congestionamento ou falha.",
             "acao": "Recomenda-se reduzir a carga e investigar a causa."
         })
-    else: dados["throughput_mbps"] == None
+    else: dados["throughput_mbps"] is None
     alertas.append({
             "tipo": "Throughput Desconecatada",
             "severidade": "Alerta",
@@ -121,7 +121,7 @@ def avaliar(dados):
             "mensagem": "Saúde da antena está ruim, indicando possível falha ou necessidade de manutenção.",
             "acao": "Recomenda-se reduzir a carga e investigar a causa."
         }) 
-    else: dados["saude_antena"] == None
+    else: dados["saude_antena"] is None
     alertas.append({
             "tipo": "Saúde da Antena Desconecatada",
             "severidade": "Alerta",
@@ -131,28 +131,28 @@ def avaliar(dados):
     
 
     # Beam Steering
-    if dados["beam_stearing"] == "ESTAVEL":
+    if dados["beam_stearing"] is "ESTAVEL":
         alertas.append({
             "tipo": "Beam Steering Estável",
             "severidade": "Alerta",
             "mensagem": "Beam steering está estável, indicando operação normal.",
             "acao": "Nenhuma ação necessária."
         })
-    elif dados["beam_stearing"] == "AJUSTANDO":
+    elif dados["beam_stearing"] is "AJUSTANDO":
         alertas.append({
             "tipo": "Beam Steering Ajustando",
             "severidade": "Alerta",
             "mensagem": "Beam steering está ajustando, monitorar de perto.",
             "acao": "Recomenda-se monitorar o beam steering e ajustar a operação conforme necessário."
         })
-    elif dados["beam_stearing"] == "INSTAVEL":
+    elif dados["beam_stearing"] is "INSTAVEL":
         alertas.append({
             "tipo": "Beam Steering Instável",
             "severidade": "Critico",
             "mensagem": "Beam steering está instável, indicando possível falha ou interferência.",
             "acao": "Recomenda-se reduzir a carga e investigar a causa."
         })
-    else: dados["beam_stearing"] == None
+    else: dados["beam_stearing"] is None
     alertas.append({
             "tipo": "Beam Steering Desconecatada",
             "severidade": "Alerta",
@@ -183,7 +183,7 @@ def avaliar(dados):
             "mensagem": "Número de clientes online está baixo, monitorar de perto.",
             "acao": "Recomenda-se monitorar o número de clientes online e ajustar a operação conforme necessário."
         })  
-    else: dados["clientes_online"] == None
+    else: dados["clientes_online"] is None
     alertas.append({
             "tipo": "Número de Clientes Online Desconecatada",
             "severidade": "Alerta",
@@ -214,7 +214,7 @@ def avaliar(dados):
             "mensagem": "Integridade do sinal está ruim, indicando possível falha ou interferência.",
             "acao": "Recomenda-se reduzir a carga e investigar a causa."
         })
-    else: dados["integridade_sinal"] == None
+    else: dados["integridade_sinal"] is None
     alertas.append({
             "tipo": "Integridade do Sinal Desconecatada",
             "severidade": "Alerta",
