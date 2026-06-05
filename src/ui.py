@@ -39,7 +39,7 @@ def run_cli(engine):
         if user_input == "/exit":
             break
         if user_input == "/help":
-            console.print("Comandos: /help /status /about /clear /exit")
+            console.print("Comandos: /help /status /about /clear /exit /cenario normal /cenario critico /cenario moderado / cenario impossivel")
             continue
         if user_input == "/status":
             show_response(engine.status_snapshot())
@@ -47,6 +47,18 @@ def run_cli(engine):
         if user_input == "/clear":
             console.clear(); show_banner(); continue
         resposta = engine.analyze(user_input)
+        if user_input == "/cenario normal":
+            engine.carregar_cenario("estado normal")
+            continue
+        if user_input == "/cenario criticio":
+            engine.carregar_cenario("estado critico")
+            continue
+        if user_input == "/cenario moderado":
+            engine.carregar_cenario("estado moderado")
+            continue
+        if user_input == "/cenario impossivel":
+            engine.carregar_cenario("estado impossivel")
+            continue
                
         
 

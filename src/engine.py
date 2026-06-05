@@ -1,4 +1,5 @@
 import os
+import json
 
 from ollama import Client
 from dotenv import load_dotenv
@@ -40,10 +41,17 @@ def load_system_prompt():
         return path.read_text(encoding="utf-8")
     return "Você é um assistente."
 
+def carregar_cenario(self, nome):
+
+    with open ("cenarios.json", "r", encoding='utf-8') as f:
+        cenarios = json.load(f)
+        self.dados_atuais = cenarios[nome]
+
 class MissionEngine:
     def __init__(self):
         self.trilha = TRILHA
         self.system_prompt = load_system_prompt()
+        self.dados_atuais = coletar ()
 
         self.historico = []
     
@@ -51,9 +59,10 @@ class MissionEngine:
         return True #trocar para True quando analyze() estiver implementado
 
     def status_snapshot(self):
-        dados = coletar()
+        dados = self.dados_atuais
         return f"""
         Estado: {dados['estado']}
+        Região: {dados['regiao']}
         Status da Missão
         Latência: {dados['latencia_ms']} ms
         Throughput: {dados['throughput_mbps']} Mbps
@@ -62,11 +71,10 @@ class MissionEngine:
         Temperatura do Transponder: {dados['temperatura_transponder']}°C
         Clientes Online: {dados['clientes_online']}
         Integridade do Sinal: {dados['integridade_sinal']}%
-        Região: {dados['regiao']}
         """
 
     def analyze(self, pergunta_usuario):
-        dados = coletar()
+        dados = self.dados_atuais
         alertas = avaliar(dados)
 
         historico_texto = ""
