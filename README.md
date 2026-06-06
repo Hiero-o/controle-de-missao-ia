@@ -262,7 +262,6 @@ Além disso, o sistema gera respostas automatizadas para mitigação de problema
 * Algumas respostas da IA podem variar devido ao comportamento generativo do modelo
 * A IA está sujeita ao limite de tokens, gerando assim, respostas incompletas quando muito longas, podendo impedir o relatório completo em certos casos.
 
----
 
 # Versões
 
@@ -278,7 +277,7 @@ Além disso, o sistema gera respostas automatizadas para mitigação de problema
 # Vídeo de Demonstração
 
 Link do vídeo no YouTube:
-[COLOCAR LINK AQUI DEPOIS]
+https://youtu.be/OJUIpeu3ceM
 
 ---
 
