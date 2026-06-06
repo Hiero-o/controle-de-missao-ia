@@ -128,7 +128,7 @@ Exemplos:
 ## 1. Clonar o repositório
 
 Terminal (CMD - POWERSHELL - GITBASH)
-git clone https://github.com//mission-control-ai
+git clone https://github.com/Hiero-o/controle-de-missao-ia.git
 
 
 ---
